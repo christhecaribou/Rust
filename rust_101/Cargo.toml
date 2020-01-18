@@ -10,3 +10,9 @@ edition = "2018"
 rand = "0.7"
 libc = "0.2"
 log = "0.4"
+serde = "1.0.104"
+rocket = "0.4.2"
+
+# Other HTTP Servers:
+# hyper = "0.13.1"
+# gotham = "0.4.0"
