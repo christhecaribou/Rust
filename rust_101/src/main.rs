@@ -9,12 +9,22 @@ fn index() -> &'static str {
 fn main() {
     println!("Hello, world!");
 
-    // Rustaceans shadow their variables
+    // Rustaceans "shadow" their variables
     let x = 5;
     let x = x + 1;
     let x = x * 2;
     println!("The value of x is: {}", x);
     
+    // Basic operations
+    let sum = 5 + 10;
+    let difference = 95 - 4;
+    let product = 4 * 30;
+    let quotient = 2 / 1;
+    let remainder = 43 % 5;
+    // you must USE data structures or Rust will complain
+    println!("A number: {}", sum+difference
+        +product+quotient+remainder);
+
     // A 'constant' should be formatted C & Rust share style
     const MAX_POINTS: u32 = 100_000;
     println!("MAX_POINTS: {}", MAX_POINTS);
