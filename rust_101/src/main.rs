@@ -59,6 +59,22 @@ fn main() {
     // can't determine data structure size
     println!("{:?}{:?}", tup0, tup1);
 
+    // Destructure
+    let tup = (500, 6.4, 1);
+    
+    // Unused variables should have underscore prefix
+    let (_x, y, _z) = tup;
+    println!("The value of y is: {}", y);
+
+    // Helpful accessors
+    let q: (i32, f64, u8) = (500, 6.4, 1);
+    let _five_hundred = q.0;
+    let _six_point_four = q.1;
+    let _one = q.2;
+
+    // Arrays use stacks, not heaps
+    let _array = [1, 2, 3, 4, 5];
+    
     // Ignite the rocket
     //rocket::ignite().mount("/", routes![index]).launch();
 }
