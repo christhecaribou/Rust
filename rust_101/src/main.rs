@@ -23,8 +23,8 @@ fn main() {
     let remainder = 43 % 5;
     
     // You must USE data structures or Rust will complain
-    println!("A number: {}", sum+difference
-        +product+quotient+remainder);
+    println!("A number: {}", sum+difference+product
+        +quotient+remainder);
 
     // A 'constant' should be formatted C / Rust style
     const MAX_POINTS: u32 = 100_000;
@@ -33,24 +33,31 @@ fn main() {
     // Rust’s char type is four bytes in size and 
     // represents a Unicode Scalar Value
     // This means you can use Emoji among other things
-    let mut a = String::from("αβγδ");
-    let b = "εζηθ";
+    let mut lamb = String::from("αβγδ");
+    let veal = "εζηθ";   
+    let cat = '😻'; // This is a char, not a string
     
-    // This is a char, not a string
-    let c = '😻';
- 
     // I had to read a thread on the Rust forums debating
     // the best way to concatenate strings AND chars
     // a fundamental operation  2019-01-01
-    let pork = format!("{}{}{}", a, b, c);
+    let pork = format!("{}{}{}", lamb, veal, cat);
     
     // This is the correct way to do it,
     // as it's more effecient with memory
-    a.push_str(b);
-    a.push(c);
-    a.push_str("d");
+    lamb.push_str(veal);
+    lamb.push(cat);
     println!("{}", pork);
-    println!("{}", a);
+    println!("{}", lamb);
+
+    // A compound data type, a TUPLE
+    // optional type annotations make inference easier
+    let tup0: (i32, f64, u8) = (500, 6.4, 1);
+    let tup1 = (420, "abcd", 69);
+    
+    // The :? tells Rust to allocate the maximum
+    // amount of memory, otherwise, the command
+    // can't determine data structure size
+    println!("{:?}{:?}", tup0, tup1);
 
     // Ignite the rocket
     //rocket::ignite().mount("/", routes![index]).launch();
