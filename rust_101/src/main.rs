@@ -75,6 +75,6 @@ fn main() {
     // Arrays use stacks, not heaps
     let _array = [1, 2, 3, 4, 5];
     
-    // Ignite the rocket
-    //rocket::ignite().mount("/", routes![index]).launch();
+    // Ignite the rocket, a simple webserver 
+    rocket::ignite().mount("/", routes![index]).launch();
 }
