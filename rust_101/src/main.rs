@@ -1,5 +1,6 @@
 #![feature(proc_macro_hygiene, decl_macro)]
 #[macro_use] extern crate rocket;
+use rand::seq::SliceRandom; // 0.7.2
 
 #[get("/")]
 fn index() -> &'static str {
@@ -75,6 +76,28 @@ fn main() {
     // Arrays use stacks, not heaps
     let _array = [1, 2, 3, 4, 5];
     
+    // Vectors
+    let months = ["January", "February", "March",
+                  "April", "May", "June",
+                  "July", "August", "September",
+                  "October", "November", "December"];
+     let sample: Vec<_> = months
+        .choose_multiple(&mut rand::thread_rng(), 1)
+        .collect();
+
+    // Random month
+    println!("{:?}", sample); 
+
+    // if condition is expression, can use with let
+    let condition = true;
+    let number = if condition {
+        5
+    } else {
+        6
+    };
+
+    println!("The value of number is: {}", number);
+
     // Ignite the rocket, a simple webserver 
-    rocket::ignite().mount("/", routes![index]).launch();
+    //rocket::ignite().mount("/", routes![index]).launch();
 }
